@@ -5,7 +5,7 @@ import musicLibrary
 import requests
 
 recognizer = sr.Recognizer()
-engine = pyttsx3.init()
+engine = pyttsx3.init() 
 newsapi = "c7ec7f357caf44c3a582c03dfaa03f77"
 
 def speak(text):
@@ -40,8 +40,6 @@ if __name__ == "__main__":
     # Listen for the wake word "Chatur"
     # obtain audio from the microphone
         r = sr.Recognizer()
-        
-
         # recognize speech using google
         print("recognizing...")
         try:
@@ -49,16 +47,17 @@ if __name__ == "__main__":
                 print("Listening...")
                 audio = r.listen(source, timeout=2, phrase_time_limit=1)
             word = r.recognize_google(audio)
-            if(word.lower() == "Hello"):
-                speak("ha")
-            #Listen for command
-            with sr.Microphone() as source:
-                print("Chatur Active")
-                audio = r.listen(source)
-                command = r.recognize_google(audio)
+            if(word.lower() == "hi chatur"):
+                speak("Ya")
+                # Listen for command
+                with sr.Microphone() as source:
+                    print("Chatur Active...")
+                    audio = r.listen(source)
+                    command = r.recognize_google(audio)
 
                 processCommand(command)
 
 
         except Exception as e:
             print("Error; {0}".format(e))
+            print("my name is vanshikaa singh")
